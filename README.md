@@ -86,13 +86,15 @@ https://www.simplilearn.com/tutorials/reactjs-tutorial/reactjs-interview-questio
 https://github.com/BriWang/reactjs-interview-questions
 
 
-
-## Practice Project - Expense Tracker
-
-### Other tips
+### Random tips
 
 Form submission 
 
 Form has a built-in submission event, which will reload the page when triggered, thus we add the following code in the submitHandler so it doesn’t render the page automatically.
 
-  `event.Preventdefault();`                                         
+  `event.Preventdefault();`  
+
+
+## Practice Project - Expense Tracker
+
+                                      
