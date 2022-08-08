@@ -1,9 +1,10 @@
+import { useState } from "react";
 import AddExpense from "./components/AddExpense";
 import ExpenseItem from "./components/ExpenseItem";
 
 function App() {
 
-  const expenses = [
+  const dummy_expenses = [
     {
       id: 'e1',
       title: 'Toilet Paper',
@@ -25,11 +26,21 @@ function App() {
     },
   ];
 
+  const [expenses, setExpenses] = useState(dummy_expenses);
+
+  const addHandler = (data) => {
+    
+      setExpenses((prevExpenses) => {
+       return [data, ...prevExpenses];
+      });
+    
+  };
+
   return (
     <div>
       <h2>Let's get started!</h2>
       
-      <AddExpense />
+      <AddExpense onSubmitExpense={addHandler} />
 
       {expenses.map( exp =>
         <ExpenseItem
