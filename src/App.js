@@ -1,6 +1,6 @@
 import { useState } from "react";
 import AddExpense from "./components/AddExpense";
-import ExpenseItem from "./components/ExpenseItem";
+import Expense from './components/Expense';
 
 function App() {
 
@@ -29,7 +29,7 @@ function App() {
   const [expenses, setExpenses] = useState(dummy_expenses);
 
   const addHandler = (data) => {
-    
+
       setExpenses((prevExpenses) => {
        return [data, ...prevExpenses];
       });
@@ -38,18 +38,8 @@ function App() {
 
   return (
     <div>
-      <h2>Let's get started!</h2>
-      
       <AddExpense onSubmitExpense={addHandler} />
-
-      {expenses.map( exp =>
-        <ExpenseItem
-          key={exp.id}
-          title={exp.title}
-          amount={exp.amount}
-          date={exp.date} />
-      )}
- 
+      <Expense data={expenses} />
     </div>
   );
 }
