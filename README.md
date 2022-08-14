@@ -25,7 +25,9 @@ When re-render, the entire functional component will be rendering again, while c
 
 setState use Shallow Merge, which means only update the value of the specific key in the object, anything else has been kept in the same way.
 
-setState runs asynchronously, which means they don’t run at the same time. If you want to do something only after the setState has happened, you can use a callback function. (Optional)  
+#### when to use callback - case 1
+
+setState runs asynchronously, which means after calling setState the this.state variable is not immediately changed. so if you want to perform an action immediately after setting state on a state variable and then return a result, a callback will be useful
 
  ```
 this.setState(                                                 
@@ -34,18 +36,32 @@ this.setState(
                    updater function has completed               
  );                                                             
 ```
+
+For example:
 ```
  this.setState(                                                 
-    (state, props) => {                                         
-        return (<div ></div>);                                  
-    },                                                          
+    { name: 'Andrei' },                                                          
     () => {                                                     
         console.log(this.state);                                
     }                                                           
  );
  ```                                                           
+#### when to use callback - case 2
 
+A case may arise when you need to make an API call based on a particular state change, if you do that in the render method, it will be called on every render onState change or because some Prop passed down to the Child Component changed.
 
+In this case you would want to use a setState callback to pass the updated state value to the API call
+
+```
+....
+changeTitle: function (event) {
+  this.setState({ title: event.target.value }, () => this.APICallFunction());
+},
+APICallFunction: function () {
+  // Call API with the updated value
+}
+....
+```
 
 ### useEffect() 
 
