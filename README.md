@@ -80,11 +80,9 @@ function Example() {
   });
 }
 ```
-#### Use Case 2 - get third party's data (HTTP requests)
+#### Use Case 2 - to avoid infinite loop
 
 **Side Effects** - anything else that happened outside the normal components evaluation, most of time involving data outside the components. For example, HTTP requests.
-
-It can avoid infinite loop in the functional component.
 
 ![image](https://user-images.githubusercontent.com/38158251/182990049-f5de04c1-0e97-4ce4-817f-6a68b3207070.png)
 
