@@ -86,6 +86,73 @@ function Example() {
 
 ![image](https://user-images.githubusercontent.com/38158251/182990049-f5de04c1-0e97-4ce4-817f-6a68b3207070.png)
 
+**Three scenarios**
+```
+useEffect(() => {
+    console.log('TEST!');
+  });     // Run at initial render, then run after every render
+```
+```
+useEffect(() => {
+    console.log('TEST!');
+  }, []);   // Run at initial render
+```
+```
+useEffect(() => {
+    console.log('TEST!');
+  }, [data]);    // Run at initial render, then run every render if data changes
+```
+
+#### Question 1:
+Take a look at the following code. After running it, how many console logs would you expect to see, and when would you see them?
+
+```
+import React, { useEffect } from 'react';
+import ReactDOM from 'react-dom';
+ 
+const App = () => {
+  useEffect(() => {
+    console.log('TEST!');
+  }, []);
+ 
+  return <div>This is a test component</div>;
+};
+ 
+ReactDOM.render(<App />, document.querySelector('#root'));
+
+```
+#### Answer:
+I would see one log statement of 'TEST!', and it would show up right after the component is rendered.
+
+#### Question 2:
+How many time would you expect to see the log statement after a user clicks on the button three times?
+```
+import React, { useEffect, useState } from 'react';
+import ReactDOM from 'react-dom';
+ 
+const App = () => {
+  const [count, setCount] = useState(0);
+ 
+  useEffect(() => {
+    console.log('TEST!');
+  }, [count]);
+ 
+  const onClick = () => {
+    setCount(count + 1);
+  };
+ 
+  return (
+    <div>
+      <h1>Count: {count}</h1>
+      <button onClick={onClick}>Click me!</button>
+    </div>
+  );
+};
+ 
+ReactDOM.render(<App />, document.querySelector('#root'));
+```
+#### Answer:
+I would expect to see four log statements.
 
 ### useState()
 
