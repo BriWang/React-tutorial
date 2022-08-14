@@ -82,7 +82,7 @@ function Example() {
 ```
 #### Use Case 2 - get third party's data (HTTP requests)
 
-Side Effects - anything else that happened outside the normal components evaluation, most of time involving data outside the components. For example, HTTP requests.
+**Side Effects** - anything else that happened outside the normal components evaluation, most of time involving data outside the components. For example, HTTP requests.
 
 It can avoid infinite loop in the functional component.
 
