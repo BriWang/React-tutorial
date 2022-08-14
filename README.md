@@ -65,6 +65,22 @@ APICallFunction: function () {
 
 ### useEffect() 
 
+By using this Hook, you tell React that your component needs to do something **after render**. React will remember the function you passed (we’ll refer to it as our “effect”), and call it later after performing the DOM updates.
+
+#### Use Case - count
+
+Placing useEffect inside the component lets us access the count state variable (or any props) right from the effect. We don’t need a special API to read it — it’s already in the function scope.
+
+```
+function Example() {
+  const [count, setCount] = useState(0);
+
+  useEffect(() => {
+    document.title = `You clicked ${count} times`;
+  });
+}
+```
+
 To avoid infinite loop in the functional component.
 
 Side Effects - anything else that happened outside the normal components evaluation, most of time involving data outside the components. For example, HTTP requests.
