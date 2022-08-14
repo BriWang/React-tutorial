@@ -29,3 +29,12 @@ To run my code, navigate into a specific code practice folder via the cd command
 Then run ```npm install``` to install all required dependencies (this will create a /node_modules folder).
 
 Last, run ```npm start```
+
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+
+### Interview Questions
+
+https://www.simplilearn.com/tutorials/reactjs-tutorial/reactjs-interview-questions#reactjs_interview_questions_on_components
+
+https://github.com/BriWang/reactjs-interview-questions
