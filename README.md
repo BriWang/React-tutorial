@@ -11,13 +11,13 @@ https://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/
 ComponentDidMount - normally put API here to fetch data, so that it happens ASAP when this component being rendered.
 
 
-
 ### Render - Functional Component
 
 Functional component DONOT have life cycles, it’s just like a JavaScript function that will run from top line to the bottom.
 
 When re-render, the entire functional component will be rendering again, while class component only re-render the code inside render().
 
+---------------------------------------------------------------------------------------------------------------------------------------------
 
 ### setState() - commonly used in Class components
 
@@ -62,8 +62,33 @@ APICallFunction: function () {
 }
 ....
 ```
+---------------------------------------------------------------------------------------------------------------------------------------------
+### Basic Hooks 
 
-### useEffect() 
+Let you use state and other React features without writing a class.
+
+### Basic Hooks - useState()
+
+why we need it
+React render components once. Then, if variables inside components changed, it won’t re-render again. Thus, we need useState to update the variable and let React know that it needs to re-render this specific component.
+
+ `const [count, setCount] = useState(0);`                            
+
+0 is the default value, only validate in the initial render. When re-render, count will be the latest setCount value.
+
+You can set one or multiple useState in the component.
+
+Remember to use (prevState): React schedule state updates, so they don’t update immediately. prevState guarantee that React will always grab the latest state when there are multiple state updates in the schedule, which is a safer way to insure that it always operate on the latest state.
+
+```
+const titleChangeHandler = (event) => {
+  setUserInput((prevState) => {
+    return {...prevState, setTitle: event.target.value};
+  });
+ }
+```
+
+### Basic Hooks - useEffect() 
 
 By using this Hook, you tell React that your component needs to do something **after render**. React will remember the function you passed (we’ll refer to it as our “effect”), and call it later after performing the DOM updates.
 
@@ -154,36 +179,7 @@ function Example() {
   });
 }
 ```
-
-### useState()
-
-why we need it
-React render components once. Then, if variables inside components changed, it won’t re-render again. Thus, we need useState to update the variable and let React know that it needs to re-render this specific component.
-
- `const [count, setCount] = useState(0);`                            
-
-0 is the default value, only validate in the initial render. When re-render, count will be the latest setCount value.
-
-You can set one or multiple useState in the component.
-
-Remember to use (prevState): React schedule state updates, so they don’t update immediately. prevState guarantee that React will always grab the latest state when there are multiple state updates in the schedule, which is a safer way to insure that it always operate on the latest state.
-
-```
-const titleChangeHandler = (event) => {
-  setUserInput((prevState) => {
-    return {...prevState, setTitle: event.target.value};
-  });
- }
-```
-
-
-
-### Interview Questions
-
-https://www.simplilearn.com/tutorials/reactjs-tutorial/reactjs-interview-questions#reactjs_interview_questions_on_components
-
-https://github.com/BriWang/reactjs-interview-questions
-
+---------------------------------------------------------------------------------------------------------------------------------------------
 
 ### Random tips
 
@@ -193,7 +189,10 @@ Form has a built-in submission event, which will reload the page when triggered,
 
   `event.Preventdefault();`  
 
+---------------------------------------------------------------------------------------------------------------------------------------------
 
 ## Practice Project - Expense Tracker
 
-                                      
+                                     
+---------------------------------------------------------------------------------------------------------------------------------------------
+
