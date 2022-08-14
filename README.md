@@ -181,18 +181,13 @@ function Example() {
 ```
 ---------------------------------------------------------------------------------------------------------------------------------------------
 
-### Random tips
-
-Form submission 
-
-Form has a built-in submission event, which will reload the page when triggered, thus we add the following code in the submitHandler so it doesn’t render the page automatically.
-
-  `event.Preventdefault();`  
+<img width="727" alt="image" src="https://user-images.githubusercontent.com/38158251/184531362-00d3cf96-e7aa-46f7-bd2c-a0586dfd1073.png">
 
 ---------------------------------------------------------------------------------------------------------------------------------------------
 
 ## Practice Project - Expense Tracker
 
-                                     
+<img width="932" alt="image" src="https://user-images.githubusercontent.com/38158251/184531391-6d0d82ee-88a9-4757-ac85-204a1c1686af.png">
+
 ---------------------------------------------------------------------------------------------------------------------------------------------
 
