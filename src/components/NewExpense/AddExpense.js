@@ -12,6 +12,7 @@ function AddExpense(props) {
         setIsEditing(false);
     };
 
+    /* conditional content - use state change to reder different content */
     const [isEditing, setIsEditing] = useState(false);
 
     const editHandler = () => {

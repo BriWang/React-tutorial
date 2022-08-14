@@ -1,6 +1,7 @@
 import { useState } from "react";
 import ExpenseList from "./ExpenseList";
 import ExpenseFilter from './ExpenseFilter';
+import Chart from '../Chart/Chart';
 
 function Expense(props) {
 
@@ -23,6 +24,7 @@ function Expense(props) {
                 selected={filteredYear}
                 onChangeFilter={filterChangeHandler}
             />
+            <Chart dataPoint={filteredExpenses} />
             <ExpenseList filteredData={filteredExpenses} />
         </div>
     );

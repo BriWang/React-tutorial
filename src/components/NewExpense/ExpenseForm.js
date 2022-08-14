@@ -24,10 +24,11 @@ function ExpenseForm(props) {
 
         const newData = {
             title: title,
-            amount: amount,
+            amount: +amount, //'+' symbol is to convert string to number
             date: new Date(date),
         };
 
+        console.log(newData.amount);
         props.onSaveExpense(newData);  //call parent function to pass data
 
         setTitle(''); //clear field once submit
