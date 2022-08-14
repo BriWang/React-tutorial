@@ -20,7 +20,7 @@ function ExpenseForm(props) {
     };
 
     const submitHandler = (event) => {
-        event.preventDefault();
+        event.preventDefault(); //Form has a built-in submission event, which will reload the page when triggered, thus we add the following code in the submitHandler so it doesn’t render the page automatically.
 
         const newData = {
             title: title,
