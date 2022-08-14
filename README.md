@@ -187,7 +187,14 @@ function Example() {
 
 ## Practice Project - Expense Tracker
 
-<img width="921" alt="image" src="https://user-images.githubusercontent.com/38158251/184534652-de9a1904-67df-4a2b-8aa6-24f354c172a1.png">
+### Key features 
+#### Two-way binding
+#### Lift State Up
+#### Rendering list
+#### Conditional Content
+#### Dynamic styles
+
+<img width="1000" alt="image" src="https://user-images.githubusercontent.com/38158251/184537244-306c3e39-30fe-4ef9-9840-1532658c99b0.png">
 
 ---------------------------------------------------------------------------------------------------------------------------------------------
 
