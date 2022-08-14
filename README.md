@@ -187,7 +187,7 @@ function Example() {
 
 ## Practice Project - Expense Tracker
 
-<img width="932" alt="image" src="https://user-images.githubusercontent.com/38158251/184531391-6d0d82ee-88a9-4757-ac85-204a1c1686af.png">
+<img width="921" alt="image" src="https://user-images.githubusercontent.com/38158251/184534652-de9a1904-67df-4a2b-8aa6-24f354c172a1.png">
 
 ---------------------------------------------------------------------------------------------------------------------------------------------
 
