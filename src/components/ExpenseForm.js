@@ -28,7 +28,7 @@ function ExpenseForm(props) {
             date: new Date(date),
         };
 
-        props.onSaveExpense(newData);      //call parent function to pass data
+        props.onSaveExpense(newData);  //call parent function to pass data
 
         setTitle(''); //clear field once submit
         setAmount('');
@@ -62,6 +62,7 @@ function ExpenseForm(props) {
                 </div>
             </div>
             <div className='new-expense__actions'>
+                <button type='button' onClick={props.onCancelEditing}>Cancel</button>
                 <button type='submit'>Add Expense</button>
             </div>
         </form>
