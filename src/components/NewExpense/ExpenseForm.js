@@ -6,6 +6,7 @@ function ExpenseForm(props) {
     const [title, setTitle] = useState('');
     const [amount, setAmount] = useState('');
     const [date, setDate] = useState('');
+    const [isValid, setIsValid] = useState(true);
 
     const titleChangehandler = (event) => {
         setTitle(event.target.value);
@@ -22,13 +23,17 @@ function ExpenseForm(props) {
     const submitHandler = (event) => {
         event.preventDefault(); //Form has a built-in submission event, which will reload the page when triggered, thus we add the following code in the submitHandler so it doesn’t render the page automatically.
 
+        if (title.length === 0 || amount.length === 0 || date.length === 0) {
+            setIsValid(false);
+            return;
+        }
+
         const newData = {
             title: title,
             amount: +amount, //'+' symbol is to convert string to number
             date: new Date(date),
         };
 
-        console.log(newData.amount);
         props.onSaveExpense(newData);  //call parent function to pass data
 
         setTitle(''); //clear field once submit
@@ -39,7 +44,7 @@ function ExpenseForm(props) {
     return (
         <form className='new-expense' onSubmit={submitHandler}>
             <div className='new-expense__controls'>
-                <div className='new-expense__control'>
+                <div className={`new-expense__control ${!isValid ? 'invalid' : ''}`}> {/* dynamic styling */ }
                     <label>Title</label>
                     <input
                         type='text'
@@ -47,14 +52,14 @@ function ExpenseForm(props) {
                         onChange={titleChangehandler}
                     />
                 </div>
-                <div className='new-expense__control'>
+                <div className={`new-expense__control ${!isValid ? 'invalid' : ''}`}>
                     <label>Amount</label>
                     <input type='number' min='0.01' step='0.01'
                         value={amount}
                         onChange={amountChangeHandler}
                     />
                 </div>
-                <div className='new-expense__control'>
+                <div className={`new-expense__control ${!isValid ? 'invalid' : ''}`}>
                     <label>Date</label>
                     <input type='date' min='2019-01-01' max='2022-12-31'
                         value={date}

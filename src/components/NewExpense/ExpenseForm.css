@@ -61,3 +61,13 @@
     .new-expense button.alternative:active {
         background-color: #ddb3f8;
     }
+
+    .new-expense__control.invalid label {
+        color: red;
+    }
+
+    .new-expense__control.invalid input {
+        border-color: red;
+        background-color: salmon;
+    }
+    
