@@ -18,9 +18,13 @@ Learn about state, component, basic hooks - useState(), useEffect().
 
 Understand Life Cycle and Render mechanism
 
+#### Code Practice - Expense Tracker
+
 ### Stage Two
 
-....Upcoming
+Learn about Conditional Content(validation) and styling the components(CSS Module)
+
+#### Code Practice - User List
 
 ## Running the attached code
 
