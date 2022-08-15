@@ -10,6 +10,7 @@ For example, the branch stage-one holds all notes and code practices for the fir
 
 You can switch branches via the branch dropdown above the directory explorer.
 
+
 ## Outline
 
 ### Stage One
@@ -23,6 +24,12 @@ Understand Life Cycle and Render mechanism
 ### Stage Two
 
 Learn about Conditional Content(validation) and styling the components(CSS Module)
+
+#### Code Practice - User List
+
+### Stage Three
+
+Learn about Fragments, Portals, useRef() Hook
 
 #### Code Practice - User List
 
