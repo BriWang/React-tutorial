@@ -1,25 +1,21 @@
-import { useState } from "react"
+import React, { useState, useRef } from "react"
 import ErrorMsg from './ErrorMsg';
 import classes from './NewUser.module.css';
 import Button from './Button';
 
 const NewUser = (props) => {
 
-    const [name, setName] = useState('');
-    const [age, setAge] = useState('');
+    const nameRef = useRef();
+    const ageRef = useRef();
+
     const [err, setErr] = useState();
-
-    const nameHandler = (event) => {
-        setName(event.target.value);
-    }
-
-    const ageHandler = (event) => {
-        setAge(event.target.value);
-    }
 
     const submitHandler = (event) => {
         event.preventDefault();
 
+        const name = nameRef.current.value;
+        const age = ageRef.current.value;
+        
         if (name.trim().length === 0 || age.trim().length === 0) {
             setErr({
                 title: 'Invalid Input',
@@ -43,8 +39,7 @@ const NewUser = (props) => {
         }
 
         props.onAddUser(newUser);
-        setName('');
-        setAge('');
+        event.target.reset(); //reset entire form field, only works for uncontrolled components. If controlled component, have to set useState to initialState
     }
 
     const cancelMsgHandler = () => {
@@ -52,16 +47,22 @@ const NewUser = (props) => {
     }
 
     return (
-        <div>
-            {err && (<ErrorMsg title={err.title} msg={err.message} onCancel={cancelMsgHandler} />)}
+        <React.Fragment>
+            {err && (
+                <ErrorMsg
+                    title={err.title}
+                    msg={err.message}
+                    onCancel={cancelMsgHandler}
+                />
+            )}
             <form className={classes.form} onSubmit={submitHandler}>
                 <label>Username</label>
-                <input type='text' onChange={nameHandler} />
+                <input type='text' ref={nameRef} />
                 <label>Age(Years)</label>
-                <input type='number' step='1' onChange={ageHandler} />    
+                <input type='number' step='1' ref={ageRef} />    
                 <Button type='submit' label='Add User' onClick={cancelMsgHandler} />
             </form>
-        </div>
+        </React.Fragment>
     );
 }
 
