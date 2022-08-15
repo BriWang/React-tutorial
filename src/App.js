@@ -1,50 +1,45 @@
 import { useState } from "react";
-import AddExpense from "./components/NewExpense/AddExpense";
-import Expense from './components/Expense/Expense';
+import Users from './components/Users';
+import NewUser from "./components/NewUser";
+
 
 function App() {
 
-  const dummy_expenses = [
+  const dummy_users = [
     {
       id: 'e1',
-      title: 'Toilet Paper',
-      amount: 94.12,
-      date: new Date(2020, 7, 14),
+      name: 'Max Tennet',
+      age: 34
     },
     {
       id: 'e2',
-      title: 'New TV',
-      amount: 799.49,
-      date: new Date(2021, 10, 12)
+      name: 'Hugo Adkins',
+      age: 24
     },
     {
       id: 'e3',
-      title: 'Car Insurance',
-      amount: 294.67,
-      date: new Date(2021, 2, 28),
+      name: 'Mark Ballinger',
+      age: 63
     },
     {
       id: 'e4',
-      title: 'New Desk (Wooden)',
-      amount: 450,
-      date: new Date(2021, 5, 12),
+      name: 'Scott Cable',
+      age: 15
     },
   ];
 
-  const [expenses, setExpenses] = useState(dummy_expenses);
+  const [users, setUsers] = useState(dummy_users);
 
-  const addHandler = (data) => {
-
-      setExpenses((prevExpenses) => {
-       return [data, ...prevExpenses];
-      });
-    
-  };
+  const addUser = (user) => {
+    setUsers((prevState) => {
+      return [user, ...prevState];
+    });
+  }
 
   return (
     <div>
-      <AddExpense onSubmitExpense={addHandler} />
-      <Expense data={expenses} />
+      <NewUser onAddUser={addUser} />
+      <Users users={users} />
     </div>
   );
 }

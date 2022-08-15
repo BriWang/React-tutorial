@@ -15,5 +15,14 @@ body {
 
 ul {
   padding-inline: 0;
+  margin: 2rem auto;
+  padding: 1rem;
+  width: 90%;
+  max-width: 40rem;
+}
+
+li {
+  list-style: none;
+  border-bottom: 1px solid grey;
 }
 
