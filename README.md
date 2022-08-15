@@ -91,10 +91,10 @@ return (
 Overlay, dialogs, tooltips, hovercards, side menu ... (when a parent component has an overflow: hidden or z-index style, but you need the child to visually “break out” of its container.)
 
 Without Portals:
-image.png
+<img width="1082" alt="image" src="https://user-images.githubusercontent.com/38158251/184619500-08370314-f4b3-4980-849a-f04241bf520f.png">
 
 With Portals:
-image.png
+<img width="1055" alt="image" src="https://user-images.githubusercontent.com/38158251/184619533-257f7289-856e-441a-9fa7-7a166020b1d3.png">
 
 ---------------------------------------------------------------------------------------------------------------------------------------------
 ### useRef() Hook
@@ -112,6 +112,7 @@ For example, in the Form component, you don't need to update state for every kin
 useRef() is like a “box” that can hold a mutable value in its .current property.
 
 Note that mutating the .current property *doesn’t cause a re-render*.
+
 ---------------------------------------------------------------------------------------------------------------------------------------------
 ## Practice Project - User List
 
