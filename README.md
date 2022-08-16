@@ -130,8 +130,9 @@ Context is **NOT** optimized for high frenquency changes! (Time for Redux to ste
 Context **CANNOT** replace all the communications and props
 
 Context is primarily used when some data needs to be accessible by many components at different nesting levels. But, it makes component reuse more difficult.
+
 ---------------------------------------------------------------------------------------------------------------------------------------------
-###
+
 If you only want to avoid passing some props through many levels, and those props are not components-wide(will only needed in specific component), **component composition** is often a simpler solution than context. Check examples in the official documentation: https://reactjs.org/docs/context.html#before-you-use-context
 	
 ---------------------------------------------------------------------------------------------------------------------------------------------
