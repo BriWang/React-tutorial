@@ -1,47 +1,62 @@
-import { useState } from "react";
-import Users from './components/Users';
-import NewUser from "./components/NewUser";
-
+import React, { useState } from 'react';
+import Header from './components/Header/Header';
+import FoodList from './components/Main/FoodList';
+import Cart from './components/Header/Cart';
 
 function App() {
+	const DUMMY_MEALS = [
+		{
+			id: 'm1',
+			name: 'Sushi',
+			description: 'Finest fish and veggies',
+			price: 22.99,
+		},
+		{
+			id: 'm2',
+			name: 'Schnitzel',
+			description: 'A german specialty!',
+			price: 16.5,
+		},
+		{
+			id: 'm3',
+			name: 'Barbecue Burger',
+			description: 'American, raw, meaty',
+			price: 12.99,
+		},
+		{
+			id: 'm4',
+			name: 'Green Bowl',
+			description: 'Healthy...and green...',
+			price: 18.99,
+		},
+	];
 
-  const dummy_users = [
-    {
-      id: 'e1',
-      name: 'Max Tennet',
-      age: 34
-    },
-    {
-      id: 'e2',
-      name: 'Hugo Adkins',
-      age: 24
-    },
-    {
-      id: 'e3',
-      name: 'Mark Ballinger',
-      age: 63
-    },
-    {
-      id: 'e4',
-      name: 'Scott Cable',
-      age: 15
-    },
-  ];
+	const [isCartShow, setIsCartShow] = useState(false);
 
-  const [users, setUsers] = useState(dummy_users);
+	const cartClickHandler =() => {
+		setIsCartShow(true);
+	}
 
-  const addUser = (user) => {
-    setUsers((prevState) => {
-      return [user, ...prevState];
-    });
-  }
-
-  return (
-    <div>
-      <NewUser onAddUser={addUser} />
-      <Users users={users} />
-    </div>
-  );
+	return (
+		<React.Fragment>
+			{isCartShow && <Cart />}
+			<Header onClick={cartClickHandler} />
+			<main>
+				<section className='welcome-text'>
+					<h2>Delicious Food, Delivered To You</h2>
+					<p>
+						Choose your favorite meal from our broad selection of available meals
+						and enjoy a delicious lunch or dinner at home.
+					</p>
+					<p>
+						All our meals are cooked with high-quality ingredients, just-in-time and
+						of course by experienced chefs!
+					</p>
+				</section>
+				<FoodList meals={DUMMY_MEALS} />
+			</main>
+		</React.Fragment>
+	);
 }
 
 export default App;
