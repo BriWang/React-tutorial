@@ -63,6 +63,61 @@ Generally, useReducer() is a replacement of useState(), only use it when you hav
 
 ---------------------------------------------------------------------------------------------------------------------------------------------
 
+### Context
+
+Context provides a way to pass data through the component tree without having to pass props down manually at every level.
+
+Context is designed to share data that can be considered “global” for a tree of React components, such as the current authenticated user, theme, or preferred language.
+
+First of all, create a Context object
+`const MyContext = React.createContext(defaultValue);`
+
+Then, use a Provider and Consumer to give access to subscribe the Context obj.
+`<MyContext.Provider value={/* some value */}>`
+```
+<MyContext.Consumer>
+  {value => /* render something based on the context value */}
+</MyContext.Consumer>
+```
+
+Next, in the context.js, define and export obj.
+```
+const AuthContext = React.createContext({
+    isLogin: false,
+    onLogout: () => {},
+    onLogin: () => {}
+});
+export default AuthContext;
+```
+
+OR, you can build and use dynamic Context Provider component
+```
+export const AuthContextProvider = (props) => {
+  const [isLogin, setIsLogin] = useState(false);
+
+	...
+    // all the component-wide state variables and functions
+  ...
+    
+  return (
+      <AuthContext.Provider
+          value={{
+              ...
+          }}
+      >
+          {props.children}
+      </AuthContext.Provider>
+  );
+}
+``` 
+
+Then, wrap <App />
+`<AuthContext.Provider><App /></uthContext.Provider>`
+
+This way, you can split the authentication state variables and functions from the <App />, so that <App /> could just focus on how to render UI to get a leaner code.
+
+---------------------------------------------------------------------------------------------------------------------------------------------
+
 ### General Rules of Hook
 
 Only Call Hooks at the Top Level - Don’t call Hooks inside loops, conditions, or nested functions. 
