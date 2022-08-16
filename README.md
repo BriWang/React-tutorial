@@ -114,6 +114,11 @@ export const AuthContextProvider = (props) => {
 Then, wrap <App />
 `<AuthContext.Provider><App /></uthContext.Provider>`
 
+Next, call `useContext()`
+`const ctx = useContext(MyContext);`
+
+Accepts a context object (the value returned from React.createContext) and returns the current context value(defined in the <Provider>) for that context.
+
 This way, you can split the authentication state variables and functions from the <App />, so that <App /> could just focus on how to render UI to get a leaner code.
 
 ---------------------------------------------------------------------------------------------------------------------------------------------
