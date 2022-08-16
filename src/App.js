@@ -1,47 +1,43 @@
-import React, { useState } from "react";
-import Users from './components/Users';
-import NewUser from "./components/NewUser";
-
+import React, { useEffect, useState } from "react";
+import Header from "./components/Header";
+import Home from "./components/Home";
+import Login from "./components/Login";
 
 function App() {
 
-  const dummy_users = [
-    {
-      id: 'e1',
-      name: 'Max Tennet',
-      age: 34
-    },
-    {
-      id: 'e2',
-      name: 'Hugo Adkins',
-      age: 24
-    },
-    {
-      id: 'e3',
-      name: 'Mark Ballinger',
-      age: 63
-    },
-    {
-      id: 'e4',
-      name: 'Scott Cable',
-      age: 15
-    },
-  ];
+	const [isLogin, setIsLogin] = useState(false);
 
-  const [users, setUsers] = useState(dummy_users);
+	// Use Case 1: store data in localStorage
+	useEffect(() => {
+		const storeLoginInfo = localStorage.getItem('isLogin');
+		if (storeLoginInfo === '1') {
+			setIsLogin(true);
+		}
+	},
+	[]); // only run once
 
-  const addUser = (user) => {
-    setUsers((prevState) => {
-      return [user, ...prevState];
-    });
-  }
+	const loginHandler = () => {
+		localStorage.setItem('isLogin', '1'); //save login data in browser
+		setIsLogin(true);
+	}
 
-  return (
-    <React.Fragment>
-      <NewUser onAddUser={addUser} />
-      <Users users={users} />
-    </React.Fragment>
-  );
+	const logoutHandler = () => {
+		localStorage.removeItem('isLogin');
+		setIsLogin(false);
+	}
+
+	return (
+		<React.Fragment>
+			{!isLogin ? <Login onSubmit={loginHandler} /> : (
+				<React.Fragment>
+					<Header onSubmit={logoutHandler} />
+					<main>
+						<Home />
+					</main>
+				</React.Fragment>
+			)}
+		</React.Fragment>
+	);
 }
 
 export default App;

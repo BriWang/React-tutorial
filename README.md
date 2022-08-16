@@ -1,125 +1,18 @@
 # React-tutorial
-## Stage Three - Fragments, Portals, useRef() Hook
+## Stage four - Dive deep in useEffect()
 
-### Fragments
+### Side Effect
 
-Understand the limitation of JSX: can only have one "root" element.
-```
-return (
-    <div>
-        <h2>Title</h2>
-        <p>Content</p>
-    </div>
-);
-```
+Data fetching, setting up a subscription, and manually changing the DOM in React components are common examples of side effects.
 
-This will lead to a potential issue: "<div> soup" - in large apps, you can easily end up with tons of <div>, which has no semantic meaning or structure to the page, but are only there because of the JSX limitation.
-
-```
-<div>
-    <div>
-        <div>
-            <h2>Title</h2>
-        </div>
-    </div>
-</div>
-```
-
-Therefore, you can use *<React.Fragment>* - an empty wrapper component that doesn't render any real HTML to the DOM, but fulfilled the JSX requirement.
-```
-return (
-    <React.Fragment>
-        <h2>Title</h2>
-        <p>Content</p>
-    </React.Fragment>
-);
-```
-OR
-```
-return (
-    <>
-        <h2>Title</h2>
-        <p>Content</p>
-    </>
-);
-```
-OR
-```
-import {Fragment} from "react";
-
-return (
-    <Fragment>
-        <h2>Title</h2>
-        <p>Content</p>
-    </Fragment>
-);
-```
----------------------------------------------------------------------------------------------------------------------------------------------
-### Portals
-
-To render children into a DOM node that exists outside the DOM hierarchy of the parent component.
-
-`ReactDOM.createPortal(child, container)`
-
-First, add elements in the DOM tree.
-```
-<body>  // in /public/index.html
-    <div id="backdrop-root"></div>
-    <div id="modal-root"></div>
-    <div id="root></div>
-</body>
-```
-
-Then, in the component:
-```
-import ReactDOM from 'react-dom';
-
-...
-return (
-    ...
-    {ReactDOM.createPortal(
-        <Backdrop />,
-        document.getElementById('backdrop-root')
-    )}
-    ...
-)
-...
-```
-
-#### Useage
-
-Overlay, dialogs, tooltips, hovercards, side menu ... (when a parent component has an overflow: hidden or z-index style, but you need the child to visually “break out” of its container.)
-
-Without Portals:
-<img width="1082" alt="image" src="https://user-images.githubusercontent.com/38158251/184619500-08370314-f4b3-4980-849a-f04241bf520f.png">
-
-With Portals:
-<img width="1055" alt="image" src="https://user-images.githubusercontent.com/38158251/184619533-257f7289-856e-441a-9fa7-7a166020b1d3.png">
+(when you need to do some actions in response to other actions)
 
 ---------------------------------------------------------------------------------------------------------------------------------------------
-### useRef() Hook
-
-useRef() is a way to access the DOM. 
-
-`const refContainer = useRef(initialValue);`
-
-#### Usage
-
-Sometimes, you just want to read a value rather than change it.
-
-For example, in the Form component, you don't need to update state for every kind of input with every keystroke when we only need them when click the submit button. Refs can help here.
-
-useRef() is like a “box” that can hold a mutable value in its .current property.
-
-Note that mutating the .current property *doesn’t cause a re-render*.
-
----------------------------------------------------------------------------------------------------------------------------------------------
-## Practice Project - User List
+## Practice Project - Header
 
 ### Key features 
-#### Rendering list
-#### Conditional Content
-#### CSS Module
+#### useEffect() without cleanup
+#### useEffect() with cleanup
 
 ---------------------------------------------------------------------------------------------------------------------------------------------
 
