@@ -60,7 +60,7 @@ const Login = (props) => {
                         pswIsValid === false ? classes.invalid : ''
                 }`}>
                     <label>Password</label>
-                    <input type='pasword' value={psw} onChange={pswHandler} onBlur={pswValidHandler} />
+                    <input type='password' value={psw} onChange={pswHandler} onBlur={pswValidHandler} />
                 </div>
                 <div className={classes.action}>
                     <Button type='submit' disabled={!isValid}>Login</Button>
