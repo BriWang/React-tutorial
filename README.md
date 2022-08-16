@@ -1,7 +1,7 @@
 # React-tutorial
-## Stage four - Dive deep in useEffect()
+## Stage four - useEffect, useReducer
 
-### Side Effect
+### Dive deep in useEffect() - Side Effect
 
 Data fetching, setting up a subscription, and manually changing the DOM in React components are common examples of side effects.
 
@@ -52,6 +52,14 @@ const MyComponent = (props) => {
 - `myTimer` is **NOT added** as a dependency because it's not a component-internal variable (i.e. not some state or a prop value) - it's defined outside of the component and changing it (no matter where) wouldn't cause the component to be re-evaluated
 
 - `setTimeout` is **NOT added** as a dependency because it's a built-in API (built-into the browser) - it's independent from React and your components, it doesn't change
+---------------------------------------------------------------------------------------------------------------------------------------------
+### useReducer
+
+Generally, useReducer() is a replacement of useState(), only use it when you have complex states, especially when one state is relating to the other state, for example, isValidState is related to the userInputState.
+
+<img width="1060" alt="image" src="https://user-images.githubusercontent.com/38158251/184804609-43d6e16e-1f69-4331-b553-4879d87c3933.png">
+
+<img width="1099" alt="image" src="https://user-images.githubusercontent.com/38158251/184804873-7c3f5948-ba15-4132-aab9-3fa997fd4160.png">
 
 ---------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -69,6 +77,7 @@ In this code practice, we practice two Use Cases of useEffect().
 ### Key features 
 #### useEffect() without cleanup
 #### useEffect() with cleanup
+#### useReducer()
 
 ---------------------------------------------------------------------------------------------------------------------------------------------
 
