@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
-import Button from './Button';
+import Button from './UI/Button';
+import Input from './UI/Input';
 import classes from './Login.module.css';
 
 const Login = (props) => {
@@ -50,18 +51,22 @@ const Login = (props) => {
     return (
         <React.Fragment>
             <form className={classes.Login} onSubmit={submitHandler} >
-                <div className={`${classes.control} ${
-                        emailIsValid === false ? classes.invalid : ''
-                }`} >
-                    <label>E-mail:</label>
-                    <input type='email' value={email} onChange={emailHandler} onBlur={emailValidHandler} />
-                </div>
-                <div className={`${classes.control} ${
-                        pswIsValid === false ? classes.invalid : ''
-                }`}>
-                    <label>Password</label>
-                    <input type='password' value={psw} onChange={pswHandler} onBlur={pswValidHandler} />
-                </div>
+                <Input
+                    isValid={emailIsValid}
+                    label='E-mail'
+                    type='email'
+                    value={email}
+                    onChange={emailHandler}
+                    onBlur={emailValidHandler}
+                />
+                <Input
+                    isValid={pswIsValid}
+                    label='Password'
+                    type='password'
+                    value={psw}
+                    onChange={pswHandler}
+                    onBlur={pswValidHandler}
+                />
                 <div className={classes.action}>
                     <Button type='submit' disabled={!isValid}>Login</Button>
                 </div> 
