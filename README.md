@@ -69,10 +69,12 @@ Context provides a way to pass data through the component tree without having to
 
 Context is designed to share data that can be considered “global” for a tree of React components, such as the current authenticated user, theme, or preferred language.
 
-First of all, create a Context object
+<img width="1131" alt="image" src="https://user-images.githubusercontent.com/38158251/184832507-2bbfddea-97b8-446e-af1e-7d4468aa7e38.png">
+
+**First of all**, create a Context object
 `const MyContext = React.createContext(defaultValue);`
 
-Then, use a Provider and Consumer to give access to subscribe the Context obj.
+**Then**, use a Provider and Consumer to give access to subscribe the Context obj.
 `<MyContext.Provider value={/* some value */}>`
 ```
 <MyContext.Consumer>
@@ -80,7 +82,7 @@ Then, use a Provider and Consumer to give access to subscribe the Context obj.
 </MyContext.Consumer>
 ```
 
-Next, in the context.js, define and export obj.
+**Next**, in the context.js, define and export obj.
 ```
 const AuthContext = React.createContext({
     isLogin: false,
@@ -90,7 +92,7 @@ const AuthContext = React.createContext({
 export default AuthContext;
 ```
 
-OR, you can build and use dynamic Context Provider component
+**OR**, you can build and use dynamic Context Provider component
 ```
 export const AuthContextProvider = (props) => {
   const [isLogin, setIsLogin] = useState(false);
@@ -111,18 +113,28 @@ export const AuthContextProvider = (props) => {
 }
 ``` 
 
-Then, wrap <App />
+**Then**, wrap <App /> in index.js
 `<AuthContext.Provider><App /></uthContext.Provider>`
 
-Next, call `useContext()`
+**Next**, call `useContext()`
 `const ctx = useContext(MyContext);`
 
 Accepts a context object (the value returned from React.createContext) and returns the current context value(defined in the <Provider>) for that context.
 
 This way, you can split the authentication state variables and functions from the <App />, so that <App /> could just focus on how to render UI to get a leaner code.
 
----------------------------------------------------------------------------------------------------------------------------------------------
+### Limitations
 
+Context is **NOT** optimized for high frenquency changes! (Time for Redux to stepin)
+
+Context **CANNOT** replace all the communications and props
+
+Context is primarily used when some data needs to be accessible by many components at different nesting levels. But, it makes component reuse more difficult.
+---------------------------------------------------------------------------------------------------------------------------------------------
+###
+If you only want to avoid passing some props through many levels, and those props are not components-wide(will only needed in specific component), **component composition** is often a simpler solution than context. Check examples in the official documentation: https://reactjs.org/docs/context.html#before-you-use-context
+	
+---------------------------------------------------------------------------------------------------------------------------------------------
 ### General Rules of Hook
 
 Only Call Hooks at the Top Level - Don’t call Hooks inside loops, conditions, or nested functions. 
