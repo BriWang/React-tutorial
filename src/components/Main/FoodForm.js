@@ -1,4 +1,5 @@
 import { useState } from "react";
+import classes from './FoodForm.module.css';
 
 const FoodForm = () => {
 
@@ -11,8 +12,8 @@ const FoodForm = () => {
     }
 
     return (
-        <form onSubmit={submitHandler} >
-            <div>
+        <form className={classes.form}  onSubmit={submitHandler} >
+            <div className={classes.input} >
                 <label>amount</label>
                 <input
                     type='number'

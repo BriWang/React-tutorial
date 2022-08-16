@@ -1,8 +1,9 @@
 import Food from './Food';
+import classes from './FoodList.module.css';
 
 const FoodList = (props) => {
     return (
-        <ul>
+        <ul className={classes.ul}>
             {props.meals.map((m) => {
                 return (
                     <Food

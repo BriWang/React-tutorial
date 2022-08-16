@@ -1,0 +1,9 @@
+.ul {
+	max-width: 860px;
+	margin-left: auto;
+	margin-right: auto;
+	padding: 1rem;
+	box-shadow: 0 2px 8px rgb(0 0 0 / 25%);
+	border-radius: 14px;
+	background-color: white;
+}

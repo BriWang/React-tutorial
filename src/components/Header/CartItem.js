@@ -1,24 +1,23 @@
-const CartItem = () => {
+import React from 'react';
+import classes from './CartItem.module.css';
+
+const CartItem = (props) => {
     return (
-        <li>
-            <div>
-                <h3>title</h3>
-                <p>price</p>
-            </div>
-            <div>
-                <input />
-                <button>-</button>
-                <button>+</button>
-            </div>
-            <div>
-                <span>Total amount</span>
-                <span>$xx</span>
-            </div>
-            <div>
-                <button>Cancel</button>
-                <button>Order</button>
-            </div>
-        </li>
+        <React.Fragment>
+            <li className={classes['cart-item']}>
+                <h2>Sushi</h2>
+                <div className={classes.wrapper}>
+                    <div className={classes.summary}>
+                        <span className={classes.price}>$22.9</span>
+                        <span className={classes.amount}>x2</span>
+                    </div>
+                    <div className={classes.action}>
+                        <button>−</button>
+                        <button>+</button>
+                    </div>
+                </div>
+            </li>
+        </React.Fragment>
     );
 }
 

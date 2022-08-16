@@ -37,9 +37,13 @@ function App() {
 		setIsCartShow(true);
 	}
 
+	const cartCancelHandler =() => {
+		setIsCartShow(false);
+	}
+
 	return (
 		<React.Fragment>
-			{isCartShow && <Cart />}
+			{isCartShow && <Cart onCancel={cartCancelHandler} />}
 			<Header onClick={cartClickHandler} />
 			<main>
 				<section className='welcome-text'>

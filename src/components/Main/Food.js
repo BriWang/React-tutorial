@@ -3,11 +3,11 @@ import classes from './Food.module.css';
 
 const Food = (props) => {
     return (
-        <li>
+        <li className={classes.meal}>
             <div>
                 <h3>{props.title}</h3>
-                <p>{props.description}</p>
-                <p>{props.price}</p>
+                <p className={classes.description}>{props.description}</p>
+                <p className={classes.price}>{props.price}</p>
             </div>
             <div>
                 <FoodForm />
