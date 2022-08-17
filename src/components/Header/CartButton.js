@@ -1,6 +1,15 @@
 import classes from './CartButton.module.css';
+import OrderContext from '../../store/order-context';
+import { useContext } from 'react';
 
 const CartButton = (props) => {
+
+    const ctx = useContext(OrderContext);
+
+    const badgeNum = ctx.items.reduce((curNumber, item) => {
+        return curNumber + item.amount;
+    }, 0);
+    
     return (
         <button className={classes.button} onClick={props.onClick}>
             <span className={classes.icon}>
@@ -13,7 +22,7 @@ const CartButton = (props) => {
                 </svg>
             </span>
             <span>Your Cart</span>
-            <span className={classes.badge}>3</span>
+            <span className={classes.badge}>{badgeNum}</span>
         </button>    
     );
 }

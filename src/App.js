@@ -1,7 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import Header from './components/Header/Header';
 import FoodList from './components/Main/FoodList';
 import Cart from './components/Header/Cart';
+import OrderContext from './store/order-context';
 
 function App() {
 	const DUMMY_MEALS = [
@@ -41,9 +42,11 @@ function App() {
 		setIsCartShow(false);
 	}
 
+	const ctx = useContext(OrderContext);
+
 	return (
 		<React.Fragment>
-			{isCartShow && <Cart onCancel={cartCancelHandler} />}
+			{isCartShow && <Cart onCancel={cartCancelHandler} items={ctx.item} />}
 			<Header onClick={cartClickHandler} />
 			<main>
 				<section className='welcome-text'>
@@ -57,7 +60,7 @@ function App() {
 						of course by experienced chefs!
 					</p>
 				</section>
-				<FoodList meals={DUMMY_MEALS} />
+				<FoodList meals={DUMMY_MEALS} onAddItem={ctx.getItem} />
 			</main>
 		</React.Fragment>
 	);

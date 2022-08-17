@@ -1,24 +1,27 @@
-import { useState } from "react";
+import { useRef } from "react";
 import classes from './FoodForm.module.css';
 
-const FoodForm = () => {
+const FoodForm = (props) => {
 
-    const [sum, setSum] = useState(1);
+    const amountRef = useRef();  // use ref instead of usestate is because we don't need to re-redenr the UI
 
-    const submitHandler = (e) => {
+    const submitHandler = (e) => { 
         e.preventDefault();
         
-        setSum(sum + 1);
+        const amount = amountRef.current.value;
+        props.onAddItem(amount);
     }
-
+   
     return (
         <form className={classes.form}  onSubmit={submitHandler} >
             <div className={classes.input} >
-                <label>amount</label>
+                <label>Amount</label>
                 <input
+                    min='0'
+                    step='1'
                     type='number'
-                    value={sum}
-                    readOnly
+                    ref={amountRef}
+                    defaultValue='1'
                 />
             </div>
             <div>

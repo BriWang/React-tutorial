@@ -21,6 +21,11 @@
 	animation: slide-down 300ms ease-out forwards;
 }
 
+.modal ul {
+	max-height: 20rem;
+	overflow: scroll;
+}
+
 @media (min-width: 768px) {
 	.modal {
 		width: 40rem;
