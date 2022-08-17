@@ -33,6 +33,33 @@ Learn about Fragments, Portals, useRef() Hook
 
 #### Code Practice - User List
 
+### Stage Four
+
+### Stage Five 
+
+Food Order Code Practice
+
+### Stage Six
+
+Optimization Techniques - useMemo, useCallback
+
+### Stage Seven
+
+Sending HTTP Requests
+
+### Stage Eight
+
+Building Custom React Hooks
+
+### Stage Nine
+
+Working with more complex formm and validation
+
+### Stage Ten
+
+A more complex Food Order app
+
+
 ## Running the attached code
 
 To run my code, navigate into a specific code practice folder via the cd command in your command prompt or terminal first.
