@@ -13,7 +13,7 @@ You can switch branches via the branch dropdown above the directory explorer.
 
 ## Outline
 
-### Stage One
+### [Stage One](https://github.com/BriWang/React-tutorial/tree/1.stage-one)
 
 Learn about state, component, basic hooks - useState(), useEffect().
 
@@ -21,23 +21,23 @@ Understand Life Cycle and Render mechanism
 
 #### Code Practice - Expense Tracker
 
-### Stage Two
+### [Stage Two](https://github.com/BriWang/React-tutorial/tree/2.stage-two)
 
 Learn about Conditional Content(validation) and styling the components(CSS Module)
 
 #### Code Practice - User List
 
-### Stage Three
+### [Stage Three](https://github.com/BriWang/React-tutorial/tree/3.stage-three)
 
 Learn about Fragments, Portals, useRef() Hook
 
 #### Code Practice - User List
 
-### Stage Four
+### [Stage Four](https://github.com/BriWang/React-tutorial/tree/4.stage-four)
 
 More about useEffect, useReducer
 
-### Stage Five 
+### [Stage Five](https://github.com/BriWang/React-tutorial/tree/5.stage-five) 
 
 Food Order Code Practice
 
