@@ -85,6 +85,12 @@ function MyComponent = (props) => {
 export default MyComponent;
 ```
 
+*** useMemo()
+
+useMemo stores any data, rarely use though. 
+
+This optimization helps to avoid expensive calculations on every render.
+
 ### Stage Seven
 
 Sending HTTP Requests
