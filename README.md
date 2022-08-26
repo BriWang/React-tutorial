@@ -39,11 +39,51 @@ More about useEffect, useReducer
 
 ### [Stage Five](https://github.com/BriWang/React-tutorial/tree/5.stage-five) 
 
-Food Order Code Practice
+#### Code Practice - Food Order 
 
 ### Stage Six
 
 Optimization Techniques - useMemo, useCallback
+
+** Understand how React works
+
+<img width="768" alt="image" src="https://user-images.githubusercontent.com/38158251/186793799-f99515c7-02f4-4863-8b41-b64894e0b257.png">
+
+*** React.memo()
+
+React.memo is a higher order component. (a higher-order component is a function that takes a component and returns a new component.)
+
+React.memo only checks for prop changes.
+
+React.memo prevents a component from re-rendering if the props (or values within it) have not changed.
+
+```
+function MyComponent = (props) => {
+  ...
+}
+
+export default React.memo(MyComponent);
+```
+
+However, the component will re-render again when it accepts a function as its props. Since it's a new function generated with every execution. 
+
+Thus, introducint useCallback()
+
+*** useCallback()
+
+useCallback stores functions, so it can be re-used when the component is executed.
+
+```
+function MyComponent = (props) => {
+  ...
+  const addItemHandler = useCallback(
+    () => {
+      ...
+    }, []    // dependency rule is as same as useEffect()
+  );
+
+export default MyComponent;
+```
 
 ### Stage Seven
 
