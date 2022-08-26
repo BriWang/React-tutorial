@@ -35,6 +35,8 @@ Learn about Fragments, Portals, useRef() Hook
 
 ### Stage Four
 
+More about useEffect, useReducer
+
 ### Stage Five 
 
 Food Order Code Practice
